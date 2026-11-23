@@ -1,0 +1,238 @@
+/* Tampilan disamakan dengan halaman Elementor asli (ga.garudamart.my.id/pengaduan-karyawan) */
+:root {
+  --blue: #013E63;
+  --accent: #FFFFFF;
+  --btn: #F6AE2D;
+  --btn-hover: #F2BB38;
+  --success: #F8A626;
+  --danger: #FF3928;
+  --text: #203E71;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: #ffffff;
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 29px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: #c36; }
+
+.wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.card {
+  background: var(--blue);
+  padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card > * { width: 100%; }
+
+/* Heading */
+.title {
+  margin: 0 0 30px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2em;
+  color: #FFFFFF;
+}
+
+/* Logo */
+.logo { margin: 0 0 50px; text-align: center; position: relative; z-index: 1; }
+.logo img {
+  width: 80%;
+  height: auto;
+  max-width: 100%;
+  border: none;
+  vertical-align: middle;
+  transition-duration: .3s;
+  transition-property: transform;
+}
+.logo img:hover { transform: scale(1.1); }
+
+/* Intro */
+.intro {
+  margin: 0;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+.intro p { margin: 0 0 14px; }
+.intro strong { font-weight: 700; }
+
+/* Form */
+form { margin: 0 0 50px; }
+
+.field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.field > label {
+  display: block;
+  width: 100%;
+  padding-bottom: 4px;
+  color: var(--accent);
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+.field.required > label::after {
+  content: "*";
+  padding-left: .2em;
+  color: var(--danger);
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffffff;
+  color: #1f2124;
+  border: 1px solid #69727d;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 300;
+  padding: 5px 14px;
+  min-height: 40px;
+  outline: none;
+  transition: all .3s;
+}
+input::placeholder, textarea::placeholder { color: #8a8f96; opacity: 1; }
+input:focus, textarea:focus, select:focus {
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);
+}
+textarea { resize: vertical; padding: 5px 14px; line-height: 1.5; }
+
+/* Select dengan caret seperti Elementor */
+.select-wrap { position: relative; width: 100%; }
+.select-wrap select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 32px;
+  cursor: pointer;
+}
+.select-wrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 0; height: 0;
+  margin-top: -2px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #1f2124;
+  pointer-events: none;
+}
+
+/* Radio */
+.subgroup { display: flex; flex-wrap: wrap; width: 100%; }
+.subgroup .option {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 12px;
+  color: var(--accent);
+  font-size: 15px;
+}
+.subgroup .option label { color: var(--accent); cursor: pointer; padding-left: 4px; }
+.subgroup input[type="radio"] { margin: 0; accent-color: var(--btn); }
+
+/* Upload */
+.upload {
+  width: 100%;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 15px;
+  padding: 5px 0;
+  line-height: 1;
+}
+.upload::file-selector-button {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 4px 10px;
+  margin-right: 8px;
+  border: 1px solid #c9c9c9;
+  border-radius: 2px;
+  background: #efefef;
+  cursor: pointer;
+}
+
+/* Tombol */
+button[type="submit"] {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: var(--btn);
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: all .3s;
+  min-height: 40px;
+}
+button[type="submit"]:hover,
+button[type="submit"]:focus { background-color: var(--btn-hover); }
+button[type="submit"]:disabled { opacity: .7; cursor: wait; }
+button[type="submit"] svg { width: 1em; height: 1em; fill: #ffffff; display: block; }
+
+/* Pesan */
+.message { font-size: 15px; line-height: 1.5; margin-top: 10px; display: none; }
+.message.success { display: block; color: var(--success); }
+.message.error { display: block; color: var(--danger); }
+
+/* Keterangan */
+.notes {
+  margin: 0 0 50px;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #FFFFFF;
+  text-align: left;
+}
+.notes p { margin: 0 0 14px; }
+.notes ol { margin: 0 0 14px; padding-left: 22px; }
+.notes strong { font-weight: 700; }
+.notes a { color: #c36; }
+
+/* Footer */
+.footer { text-align: center; }
+.footer a { color: var(--accent); text-decoration: none; transition: color .3s; }
+.footer a:hover, .footer a:focus { color: var(--btn); }
+
+/* Mobile (≤767px), sama dengan breakpoint Elementor */
+@media (max-width: 767px) {
+  .title { margin-bottom: 10px; font-size: 16px; letter-spacing: 2.4px; }
+  .logo { margin-bottom: 30px; }
+  .logo img { width: 75%; }
+  .intro { margin-bottom: 30px; font-size: 14px; line-height: 1.5em; }
+  .notes { margin-bottom: 30px; font-size: 14px; line-height: 1.5em; }
+}
