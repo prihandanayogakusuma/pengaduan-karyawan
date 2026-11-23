@@ -2,91 +2,128 @@
 <html lang="id">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#013E63">
+  <meta name="format-detection" content="telephone=no">
   <title>Form Aspirasi dan Kepedulian Karyawan - Lourdes</title>
   <link rel="icon" href="logo-lourdes.png">
+  <link rel="apple-touch-icon" href="logo-lourdes.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section class="wrap">
-    <div class="card">
-      <h2 class="title">Form Aspirasi dan Kepedulian Karyawan.</h2>
+  <!-- ===== Header ===== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <a class="logo" href="https://lourdesautoparts.com/">
+        <img src="logo-lourdes.png" width="300" height="110" alt="Lourdes Autoparts">
+      </a>
+      <h1 class="title">Form Aspirasi dan Kepedulian Karyawan.</h1>
+      <p class="subtitle">Sampaikan aspirasi, masukan, dan laporan Anda secara aman &amp; rahasia.</p>
+    </div>
+  </header>
 
-      <div class="logo">
-        <a href="https://lourdesautoparts.com/"><img src="logo-lourdes.png" width="300" height="110" alt="Lourdes"></a>
-      </div>
-
-      <div class="intro">
+  <main class="layout">
+    <!-- ===== Kolom kiri: informasi ===== -->
+    <aside class="side">
+      <section class="card intro">
+        <h2 class="card-title">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z"/></svg>
+          Tentang Formulir Ini
+        </h2>
         <p>Formulir ini disediakan sebagai sarana bagi seluruh karyawan untuk menyampaikan aspirasi, masukan, keluhan, maupun laporan terkait lingkungan kerja, hubungan antarpegawai, kebijakan perusahaan, serta hal-hal lain yang memerlukan perhatian manajemen.</p>
         <p>Kami mendorong setiap karyawan untuk menyampaikan informasi secara jujur, objektif, transparan, dan bertanggung jawab, berdasarkan kejadian atau fakta yang benar-benar diketahui.</p>
         <p>Untuk memastikan setiap laporan dapat ditindaklanjuti secara tepat, mohon sertakan kronologi kejadian yang jelas serta bukti pendukung yang relevan dan dapat diverifikasi, seperti dokumen, foto, tangkapan layar percakapan, email, atau bukti lainnya.</p>
         <p>Kerahasiaan identitas dan informasi pelapor akan dijaga dengan sebaik-baiknya dan hanya diakses oleh pihak yang berwenang sesuai kebutuhan penanganan laporan.</p>
         <p>Setiap laporan akan ditelaah secara objektif dan profesional. Perusahaan tidak akan mentoleransi penyampaian informasi palsu, fitnah, manipulasi bukti, maupun laporan yang disampaikan dengan itikad tidak baik.</p>
-        <p><strong>Suara Anda penting. Mari bersama-sama membangun lingkungan kerja yang sehat, profesional, transparan, dan saling menghargai.</strong></p>
-      </div>
+        <p class="highlight"><strong>Suara Anda penting. Mari bersama-sama membangun lingkungan kerja yang sehat, profesional, transparan, dan saling menghargai.</strong></p>
+      </section>
 
+      <section class="card notes">
+        <h2 class="card-title">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.6 3.8 10.7 9 12 5.2-1.3 9-6.4 9-12V5l-9-4Zm-1 15-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9l-7 7Z"/></svg>
+          Keterangan Tambahan
+        </h2>
+        <ol>
+          <li>Formulir ini bersifat <strong>rahasia</strong> dan hanya untuk keperluan internal.</li>
+          <li>Karyawan berhak meminta <strong>update progres</strong> pengaduan maksimal 14 hari kerja setelah pengajuan.</li>
+          <li>Untuk kolom nama, divisi dan lokasi bersifat opsional.</li>
+          <li>Harap menyertakan foto otentik utk hal yang diadukan jika diperkukan.</li>
+          <li>Contoh pengaduan <a href="https://ga.garudamart.my.id/contoh-pengaduan/" target="_blank" rel="noopener">klik di sini</a></li>
+        </ol>
+      </section>
+    </aside>
+
+    <!-- ===== Kolom kanan: form ===== -->
+    <section class="card form-card">
       <form id="form-pengaduan" name="Formulir Pengaduan Karyawan" enctype="multipart/form-data" novalidate>
-        <div class="field">
-          <label for="f-nama">Nama</label>
-          <input type="text" id="f-nama" name="nama" placeholder="Nama / Anonymous">
-        </div>
 
-        <div class="field">
-          <label>Perusahaan</label>
-          <div class="subgroup">
-            <span class="option"><input type="radio" value="Garudamart" id="f-pt-0" name="perusahaan"> <label for="f-pt-0">Garudamart</label></span>
-            <span class="option"><input type="radio" value="Globalinti" id="f-pt-1" name="perusahaan"> <label for="f-pt-1">Globalinti</label></span>
+        <h2 class="section-title"><span>1</span> Data Pelapor <small>(opsional)</small></h2>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="f-nama">Nama</label>
+            <input type="text" id="f-nama" name="nama" placeholder="Nama / Anonymous" autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" placeholder="Email pribadi untuk copy laporan" autocomplete="email" inputmode="email">
           </div>
         </div>
 
         <div class="field">
-          <label for="f-divisi">Divisi</label>
-          <div class="select-wrap">
-            <select id="f-divisi" name="divisi">
-              <option value="BOD">BOD</option>
-              <option value="HSE">HSE</option>
-              <option value="Finance">Finance</option>
-             <option value="Produksi">Produksi</option>
-              <option value="Services">Services</option>
-              <option value="Marketing">Marketing</option>
-              <option value="Warehouse">Warehouse</option>
-               <option value="SCM">SCM</option>
-              <option value="HR">HR</option>
-              <option value="GA">GA</option>
-              <option value="IT">IT</option>
-            </select>
+          <span class="label">Perusahaan</span>
+          <div class="pills" role="radiogroup" aria-label="Perusahaan">
+            <input type="radio" value="Garudamart" id="f-pt-0" name="perusahaan"> <label for="f-pt-0">Garudamart</label>
+            <input type="radio" value="Globalinti" id="f-pt-1" name="perusahaan"> <label for="f-pt-1">Globalinti</label>
           </div>
         </div>
 
-        <div class="field">
-          <label for="f-lokasi">Lokasi</label>
-          <div class="select-wrap">
-            <select id="f-lokasi" name="lokasi">
-              <option value="HO">HO</option>
-              <option value="BPN">BPN</option>
-              <option value="ENIM">ENIM</option>
-              <option value="AMI">AMI</option>
-              <option value="MIFA">MIFA</option>
-              <option value="BIB">BIB</option>
-              <option value="MIP">MIP</option>
-              <option value="Tabang">Tabang</option>
-              <option value="Lahat">Lahat</option>
-              <option value="Tal">TAL</option>
-              <option value="Tal">DIZA</option>
-              <option value="Tal">UT MANADO</option>
+        <div class="grid-2">
+          <div class="field">
+            <label for="f-divisi">Divisi</label>
+            <div class="select-wrap">
+              <select id="f-divisi" name="divisi">
+                <option value="BOD">BOD</option>
+                <option value="HSE">HSE</option>
+                <option value="Finance">Finance</option>
+                <option value="Produksi">Produksi</option>
+                <option value="Services">Services</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Warehouse">Warehouse</option>
+                <option value="SCM">SCM</option>
+                <option value="HR">HR</option>
+                <option value="GA">GA</option>
+                <option value="IT">IT</option>
+              </select>
+            </div>
+          </div>
 
-
-            </select>
+          <div class="field">
+            <label for="f-lokasi">Lokasi</label>
+            <div class="select-wrap">
+              <select id="f-lokasi" name="lokasi">
+                <option value="HO">HO</option>
+                <option value="BPN">BPN</option>
+                <option value="ENIM">ENIM</option>
+                <option value="AMI">AMI</option>
+                <option value="MIFA">MIFA</option>
+                <option value="BIB">BIB</option>
+                <option value="MIP">MIP</option>
+                <option value="Tabang">Tabang</option>
+                <option value="Lahat">Lahat</option>
+                <option value="TAL">TAL</option>
+                <option value="DIZA">DIZA</option>
+                <option value="UT MANADO">UT MANADO</option>
+              </select>
+            </div>
           </div>
         </div>
 
-        <div class="field">
-          <label for="f-email">Email</label>
-          <input type="email" id="f-email" name="email" placeholder="Masukan Email pribadi untuk copy laporan">
-        </div>
+        <h2 class="section-title"><span>2</span> Isi Laporan</h2>
 
         <div class="field required">
           <label for="f-jenis">Jenis Pengaduan</label>
@@ -105,43 +142,34 @@
         </div>
 
         <div class="field required">
-          <label for="f-deskripsi">Deskripsi Masalah:</label>
-          <textarea id="f-deskripsi" name="deskripsi" rows="4" placeholder="Jelaskan kronologis, waktu, tempat, dan pihak yang terlibat" required></textarea>
+          <label for="f-deskripsi">Deskripsi Masalah</label>
+          <textarea id="f-deskripsi" name="deskripsi" rows="6" placeholder="Jelaskan kronologis, waktu, tempat, dan pihak yang terlibat" required></textarea>
         </div>
 
         <div class="field required">
           <label for="f-bukti">Upload Bukti</label>
-          <input type="file" id="f-bukti" name="bukti" class="upload" required>
+          <div class="dropzone" id="dropzone">
+            <input type="file" id="f-bukti" name="bukti" required>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.4 10A7.5 7.5 0 0 0 5.1 8 6 6 0 0 0 6 20h13a5 5 0 0 0 .4-10ZM14 13v4h-4v-4H7l5-5 5 5h-3Z"/></svg>
+            <span class="dz-text"><strong>Pilih file</strong> atau ambil foto</span>
+            <span class="dz-hint">Foto, PDF, dokumen, atau screenshot · maks. 4 MB</span>
+            <span class="dz-file" id="dz-file" hidden></span>
+          </div>
         </div>
 
-        <div class="field">
-          <button type="submit" id="btn-kirim">
-            <span class="btn-text">Kirim</span>
-            <span class="btn-icon">
-              <svg aria-hidden="true" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
-            </span>
-          </button>
-        </div>
+        <button type="submit" id="btn-kirim">
+          <span class="btn-text">Kirim</span>
+          <svg aria-hidden="true" viewBox="0 0 512 512"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+        </button>
 
         <div id="form-message" class="message" role="status" aria-live="polite"></div>
       </form>
+    </section>
+  </main>
 
-      <div class="notes">
-        <p><strong>Keterangan Tambahan</strong>:</p>
-        <ol>
-          <li>Formulir ini bersifat <strong>rahasia</strong> dan hanya untuk keperluan internal.</li>
-          <li>Karyawan berhak meminta <strong>update progres</strong> pengaduan maksimal 14 hari kerja setelah pengajuan.</li>
-          <li>Untuk kolom nama, divisi dan lokasi bersifat opsional.</li>
-          <li>Harap menyertakan foto otentik utk hal yang diadukan jika diperkukan.</li>
-          <li>Contoh pengaduan <a href="https://ga.garudamart.my.id/contoh-pengaduan/">klik di sini</a></li>
-        </ol>
-      </div>
-
-      <div class="footer">
-        <span><a href="https://lourdesautoparts.com/">www.lourdesautoparts.com</a></span>
-      </div>
-    </div>
-  </section>
+  <footer class="footer">
+    <a href="https://lourdesautoparts.com/">www.lourdesautoparts.com</a>
+  </footer>
 
   <script src="app.js"></script>
 </body>

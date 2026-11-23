@@ -51,9 +51,10 @@ const upload = multer({
 
 // Pilihan yang valid (sama dengan form asli)
 const PERUSAHAAN = ['Garudamart', 'Globalinti'];
-const DIVISI = ['BOD', 'K3', 'Finance', 'Manufaktur & Fabrikasi', 'Services', 'Marketing',
-  'Warehouse', 'Logistik & Purchasing', 'HR', 'GA', 'IT'];
-const LOKASI = ['HO', 'BPN', 'ENIM', 'AMI', 'MIFA', 'BIB', 'MIP', 'Tabang', 'Lahat', 'Tal'];
+// Harus sama dengan pilihan di public/index.html
+const DIVISI = ['BOD', 'HSE', 'Finance', 'Produksi', 'Services', 'Marketing',
+  'Warehouse', 'SCM', 'HR', 'GA', 'IT'];
+const LOKASI = ['HO', 'BPN', 'ENIM', 'AMI', 'MIFA', 'BIB', 'MIP', 'Tabang', 'Lahat', 'TAL', 'DIZA', 'UT MANADO'];
 const JENIS = [
   '1. Pengaduan Pelanggaran Etika atau Perilaku',
   '2. Pengaduan Terkait Hubungan Kerja',
