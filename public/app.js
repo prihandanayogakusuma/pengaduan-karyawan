@@ -74,4 +74,36 @@
         btnText.textContent = 'Kirim';
       });
   });
+
+  // Modal Contoh Pengaduan
+  var modal = document.getElementById('modal-contoh');
+  var btnContoh = document.getElementById('btn-contoh');
+  var btnCloseModal = document.getElementById('modal-close-btn');
+  var btnCloseFooter = document.getElementById('modal-close-footer');
+  var backdrop = document.getElementById('modal-backdrop');
+
+  function openModal() {
+    if (!modal) return;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (btnContoh) btnContoh.addEventListener('click', openModal);
+  if (btnCloseModal) btnCloseModal.addEventListener('click', closeModal);
+  if (btnCloseFooter) btnCloseFooter.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
 })();

@@ -51,7 +51,7 @@
           <li>Karyawan berhak meminta <strong>update progres</strong> pengaduan maksimal 14 hari kerja setelah pengajuan.</li>
           <li>Untuk kolom nama, divisi dan lokasi bersifat opsional.</li>
           <li>Harap menyertakan foto otentik utk hal yang diadukan jika diperkukan.</li>
-          <li>Contoh pengaduan <a href="https://pengaduan-karyawan.lourdesautoparts.my.id" target="_blank" rel="noopener">klik di sini</a></li>
+          <li>Contoh pengaduan <button type="button" class="link-btn" id="btn-contoh">klik di sini</button></li>
         </ol>
       </section>
     </aside>
@@ -170,6 +170,96 @@
   <footer class="footer">
     <a href="https://lourdesautoparts.com/">www.lourdesautoparts.com</a>
   </footer>
+
+  <!-- Modal Contoh Pengaduan -->
+  <div class="modal" id="modal-contoh" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-contoh-title">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="modal-contoh-title">Contoh Pengaduan Karyawan</h2>
+          <p class="modal-subtitle">Berikut contoh pengaduan karyawan untuk mencatat keluhan atau masalah yang dihadapi oleh karyawan:</p>
+        </div>
+        <button type="button" class="modal-close" id="modal-close-btn" aria-label="Tutup modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="contoh-list">
+          <div class="contoh-card">
+            <h3 class="contoh-title">1. Pengaduan Pelanggaran Etika atau Perilaku</h3>
+            <div class="contoh-label">Contoh:</div>
+            <ul class="contoh-items">
+              <li>Pelecehan seksual di tempat kerja</li>
+              <li>Intimidasi atau perundungan (bullying) antar karyawan</li>
+              <li>Diskriminasi berdasarkan gender, ras, agama, atau usia</li>
+            </ul>
+          </div>
+
+          <div class="contoh-card">
+            <h3 class="contoh-title">2. Pengaduan Terkait Hubungan Kerja</h3>
+            <div class="contoh-label">Contoh:</div>
+            <ul class="contoh-items">
+              <li>Ketidakadilan dalam pembagian tugas</li>
+              <li>Promosi jabatan yang tidak transparan</li>
+              <li>Ketidakjelasan kontrak kerja</li>
+            </ul>
+          </div>
+
+          <div class="contoh-card">
+            <h3 class="contoh-title">3. Pengaduan Soal Gaji dan Tunjangan</h3>
+            <div class="contoh-label">Contoh:</div>
+            <ul class="contoh-items">
+              <li>Gaji yang tidak dibayarkan tepat waktu</li>
+              <li>Potongan gaji yang tidak jelas</li>
+              <li>Tunjangan tidak sesuai dengan perjanjian kerja</li>
+            </ul>
+          </div>
+
+          <div class="contoh-card">
+            <h3 class="contoh-title">4. Pengaduan Fasilitas atau Lingkungan Kerja</h3>
+            <div class="contoh-label">Contoh:</div>
+            <ul class="contoh-items">
+              <li>AC tidak berfungsi</li>
+              <li>Kursi/meja kerja rusak</li>
+              <li>Lingkungan kerja tidak aman atau tidak sehat (misal: kebocoran, lantai licin)</li>
+            </ul>
+          </div>
+
+          <div class="contoh-card">
+            <h3 class="contoh-title">5. Pengaduan Mengenai Jam Kerja</h3>
+            <div class="contoh-label">Contoh:</div>
+            <ul class="contoh-items">
+              <li>Lembur yang tidak dibayar</li>
+              <li>Jadwal kerja yang tidak manusiawi</li>
+              <li>Tidak adanya istirahat yang cukup</li>
+            </ul>
+          </div>
+
+          <div class="contoh-card">
+            <h3 class="contoh-title">6. Pengaduan Layanan Internal (untuk divisi lain)</h3>
+            <div class="contoh-label">Contoh:</div>
+            <ul class="contoh-items">
+              <li>Divisi IT lambat menangani masalah jaringan</li>
+              <li>HR tidak merespons keluhan karyawan</li>
+              <li>Divisi keuangan lambat dalam penggantian biaya</li>
+            </ul>
+          </div>
+
+          <div class="contoh-card">
+            <h3 class="contoh-title">7. Pengaduan Keamanan atau Keselamatan</h3>
+            <div class="contoh-label">Contoh:</div>
+            <ul class="contoh-items">
+              <li>Tidak ada alat pemadam kebakaran</li>
+              <li>Jalur evakuasi tidak jelas</li>
+              <li>Tidak ada pelatihan tanggap darurat</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-modal-close" id="modal-close-footer">Tutup</button>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
