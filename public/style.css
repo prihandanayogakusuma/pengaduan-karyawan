@@ -160,7 +160,7 @@ a { color: var(--blue-600); }
   font-weight: 500;
   color: var(--text);
 }
-.field.required > label::after { content: " *"; color: var(--danger); }
+.field.required > label::after, .field.required > .label::after { content: " *"; color: var(--danger); }
 
 /* 16px agar iPhone tidak auto-zoom saat mengetik */
 input[type="text"], input[type="email"], select, textarea {

@@ -100,7 +100,7 @@ app.post('/api/pengaduan', (req, res) => {
     try {
       const b = req.body || {};
       const data = {
-        nama: clean(b.nama, 120) || 'Anonymous',
+        nama: clean(b.nama, 120),
         perusahaan: oneOf(clean(b.perusahaan), PERUSAHAAN),
         divisi: oneOf(clean(b.divisi), DIVISI),
         lokasi: oneOf(clean(b.lokasi), LOKASI),
@@ -109,13 +109,18 @@ app.post('/api/pengaduan', (req, res) => {
         deskripsi: clean(b.deskripsi, 10000),
       };
 
-      // Validasi field wajib (sama seperti form asli)
+      // Validasi field wajib
+      if (!data.nama) return res.status(400).json({ ok: false, message: 'Nama wajib diisi.' });
+      if (!data.email) return res.status(400).json({ ok: false, message: 'Email wajib diisi.' });
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+        return res.status(400).json({ ok: false, message: 'Format email tidak valid.' });
+      }
+      if (!data.perusahaan) return res.status(400).json({ ok: false, message: 'Perusahaan wajib dipilih.' });
+      if (!data.divisi) return res.status(400).json({ ok: false, message: 'Divisi wajib dipilih.' });
+      if (!data.lokasi) return res.status(400).json({ ok: false, message: 'Lokasi wajib dipilih.' });
       if (!data.jenis_pengaduan) return res.status(400).json({ ok: false, message: 'Jenis Pengaduan wajib dipilih.' });
       if (!data.deskripsi) return res.status(400).json({ ok: false, message: 'Deskripsi Masalah wajib diisi.' });
       if (!req.file) return res.status(400).json({ ok: false, message: 'Upload Bukti wajib diisi.' });
-      if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-        return res.status(400).json({ ok: false, message: 'Format email tidak valid.' });
-      }
 
       // 1) Simpan data + file bukti ke tabel Supabase
       const { rows } = await db.query(

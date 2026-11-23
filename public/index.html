@@ -49,7 +49,7 @@
         <ol>
           <li>Formulir ini bersifat <strong>rahasia</strong> dan hanya untuk keperluan internal.</li>
           <li>Karyawan berhak meminta <strong>update progres</strong> penyampaian aspirasi nya.</li>
-          <li>Untuk kolom nama, divisi dan lokasi bersifat opsional.</li>
+          <li>Seluruh kolom Data Pelapor wajib diisi.</li>
           <li>Harap menyertakan foto otentik utk hal yang diadukan jika diperkukan.</li>
           <li>Contoh pengaduan <button type="button" class="link-btn" id="btn-contoh">klik di sini</button></li>
         </ol>
@@ -60,33 +60,34 @@
     <section class="card form-card">
       <form id="form-pengaduan" name="Formulir Pengaduan Karyawan" enctype="multipart/form-data" novalidate>
 
-        <h2 class="section-title"><span>1</span> Data Pelapor <small>(opsional)</small></h2>
+        <h2 class="section-title"><span>1</span> Data Pelapor</h2>
 
         <div class="grid-2">
-          <div class="field">
+          <div class="field required">
             <label for="f-nama">Nama</label>
-            <input type="text" id="f-nama" name="nama" placeholder="Nama" autocomplete="name">
+            <input type="text" id="f-nama" name="nama" placeholder="Nama lengkap" autocomplete="name" required>
           </div>
 
-          <div class="field">
+          <div class="field required">
             <label for="f-email">Email</label>
-            <input type="email" id="f-email" name="email" placeholder="Email pribadi untuk copy laporan" autocomplete="email" inputmode="email">
+            <input type="email" id="f-email" name="email" placeholder="Email pribadi untuk copy laporan" autocomplete="email" inputmode="email" required>
           </div>
         </div>
 
-        <div class="field">
+        <div class="field required">
           <span class="label">Perusahaan</span>
           <div class="pills" role="radiogroup" aria-label="Perusahaan">
-            <input type="radio" value="Garudamartindonesia" id="f-pt-0" name="perusahaan"> <label for="f-pt-0">Garuda Mart Indonesia</label>
-            <input type="radio" value="Globalintisejati" id="f-pt-1" name="perusahaan"> <label for="f-pt-1">Global Inti Sejati</label>
+            <input type="radio" value="Garudamartindonesia" id="f-pt-0" name="perusahaan" required> <label for="f-pt-0">Garuda Mart Indonesia</label>
+            <input type="radio" value="Globalintisejati" id="f-pt-1" name="perusahaan" required> <label for="f-pt-1">Global Inti Sejati</label>
           </div>
         </div>
 
         <div class="grid-2">
-          <div class="field">
+          <div class="field required">
             <label for="f-divisi">Divisi</label>
             <div class="select-wrap">
-              <select id="f-divisi" name="divisi">
+              <select id="f-divisi" name="divisi" required>
+                <option value="" disabled selected>Pilih Divisi</option>
                 <option value="BOD">BOD</option>
                 <option value="HSE">HSE</option>
                 <option value="Finance">Finance</option>
@@ -102,10 +103,11 @@
             </div>
           </div>
 
-          <div class="field">
+          <div class="field required">
             <label for="f-lokasi">Lokasi</label>
             <div class="select-wrap">
-              <select id="f-lokasi" name="lokasi">
+              <select id="f-lokasi" name="lokasi" required>
+                <option value="" disabled selected>Pilih Lokasi</option>
                 <option value="HO">HO</option>
                 <option value="BPN">BPN</option>
                 <option value="ENIM">ENIM</option>
