@@ -125,7 +125,7 @@ app.post('/api/pengaduan', (req, res) => {
       const tanggal = new Date(row.created_at).toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
       const html = buildEmail({ ...data, noTiket, tanggal, buktiNama: req.file.originalname });
       const attachments = [{ filename: req.file.originalname, content: req.file.buffer, contentType: req.file.mimetype }];
-      const subject = `[Pengaduan Karyawan] ${noTiket} - ${data.jenis_pengaduan.replace(/^\d+\.\s*/, '')}`;
+      const subject = `[Aspirasi Karyawan] ${noTiket} - ${data.jenis_pengaduan.replace(/^\d+\.\s*/, '')}`;
 
       await transporter.sendMail({
         from: MAIL_FROM || SMTP_USER,
@@ -142,7 +142,7 @@ app.post('/api/pengaduan', (req, res) => {
         await transporter.sendMail({
           from: MAIL_FROM || SMTP_USER,
           to: data.email,
-          subject: `Copy Laporan ${noTiket} - Pengaduan Karyawan Lourdes`,
+          subject: `Copy Laporan ${noTiket} - Aspirasi Karyawan Lourdes`,
           html: `<p>Terima kasih, pengaduan Anda telah kami terima dengan nomor <b>${noTiket}</b>.</p>${html}`,
           attachments,
         }).catch((e) => console.error('Gagal kirim copy ke pelapor:', e.message));
@@ -167,7 +167,7 @@ function buildEmail(d) {
   return `
   <div style="font-family:Arial,sans-serif;font-size:14px;color:#222">
     <div style="background:#013E63;color:#fff;padding:14px 16px;font-size:16px">
-      <b>Form Pengaduan Karyawan</b> &mdash; ${esc(d.noTiket)}
+      <b>Form Aspirasi dan Kepedulian Karyawan</b> &mdash; ${esc(d.noTiket)}
     </div>
     <table style="border-collapse:collapse;width:100%;max-width:700px;margin-top:10px">
       ${row('No. Laporan', esc(d.noTiket))}
