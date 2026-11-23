@@ -29,4 +29,4 @@ Setiap pengaduan yang dikirim akan:
 - `supabase.sql`: struktur tabel
 - `scripts/setup-db.mjs`: menjalankan `supabase.sql` ke database
 
-Batas ukuran file bukti adalah 10 MB. Ubah `MAX_FILE_MB` di `server.js` dan `public/app.js` jika perlu.
+Batas ukuran file bukti adalah 4 MB (batas request Vercel 4,5 MB). Ubah `MAX_FILE_MB` di `server.js` dan `public/app.js` jika perlu.

@@ -3,7 +3,7 @@
   var btn = document.getElementById('btn-kirim');
   var btnText = btn.querySelector('.btn-text');
   var msg = document.getElementById('form-message');
-  var MAX_MB = 10;
+  var MAX_MB = 4;
 
   function show(text, type) {
     msg.textContent = text;

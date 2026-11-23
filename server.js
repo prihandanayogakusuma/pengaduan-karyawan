@@ -24,15 +24,15 @@ const {
 const missing = ['DATABASE_URL', 'SMTP_HOST', 'SMTP_USER', 'SMTP_PASS']
   .filter((k) => !process.env[k]);
 if (missing.length) {
-  console.error(`[ERROR] Variabel .env belum diisi: ${missing.join(', ')}`);
-  process.exit(1);
+  // Jangan matikan server: halaman tetap tampil, kirim form akan memberi pesan error.
+  console.error(`[ERROR] Environment variable belum diisi: ${missing.join(', ')}`);
 }
 
 // Koneksi langsung ke database Supabase (Postgres)
 const db = new pg.Pool({
   connectionString: DATABASE_URL,
   ssl: { rejectUnauthorized: false },
-  max: 5,
+  max: process.env.VERCEL ? 1 : 5,
 });
 
 const transporter = nodemailer.createTransport({
@@ -42,7 +42,8 @@ const transporter = nodemailer.createTransport({
   auth: { user: SMTP_USER, pass: SMTP_PASS },
 });
 
-const MAX_FILE_MB = 10;
+// Vercel membatasi ukuran request maks 4,5 MB
+const MAX_FILE_MB = 4;
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: MAX_FILE_MB * 1024 * 1024, files: 1 },
@@ -74,6 +75,12 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/api/pengaduan', (req, res) => {
+  if (missing.length) {
+    return res.status(500).json({
+      ok: false,
+      message: `Server belum dikonfigurasi (${missing.join(', ')} belum diisi).`,
+    });
+  }
   upload.single('bukti')(req, res, async (err) => {
     if (err) {
       const msg = err.code === 'LIMIT_FILE_SIZE'
@@ -130,8 +137,9 @@ app.post('/api/pengaduan', (req, res) => {
       });
 
       // Copy laporan ke email pribadi pelapor (jika diisi)
+      // (di-await karena di Vercel proses berhenti setelah respons dikirim)
       if (data.email) {
-        transporter.sendMail({
+        await transporter.sendMail({
           from: MAIL_FROM || SMTP_USER,
           to: data.email,
           subject: `Copy Laporan ${noTiket} - Pengaduan Karyawan Lourdes`,
@@ -177,6 +185,11 @@ function buildEmail(d) {
   </div>`;
 }
 
-app.listen(PORT, () => {
-  console.log(`Server berjalan di http://localhost:${PORT}`);
-});
+// Di Vercel, app di-export (tanpa listen). Di komputer lokal, jalankan server biasa.
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server berjalan di http://localhost:${PORT}`);
+  });
+}
+
+export default app;
