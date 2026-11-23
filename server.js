@@ -50,7 +50,14 @@ const upload = multer({
 });
 
 // Pilihan yang valid (sama dengan form asli)
-const PERUSAHAAN = ['Garudamart', 'Globalinti'];
+const PERUSAHAAN = [
+  'Garudamart',
+  'Globalinti',
+  'Garudamartindonesia',
+  'Globalintisejati',
+  'Garuda Mart Indonesia',
+  'Global Inti Sejati',
+];
 // Harus sama dengan pilihan di public/index.html
 const DIVISI = ['BOD', 'HSE', 'Finance', 'Produksi', 'Services', 'Marketing',
   'Warehouse', 'SCM', 'HR', 'GA', 'IT'];
